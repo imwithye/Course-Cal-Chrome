@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+
+  "name": "NTU Course Calendar Generator",
+  "description": "Build your course calendar from S.T.A.R.S Planer's Printable page.",
+  "version": "0.0.1",
+
+  "background": { "scripts": ["background.js"] },
+  "permissions": ["tabs"],
+
+	"page_action": {
+		"default_icon": "icon.png",
+		"default_title": "NTU Course Calendar Generator"
+	}
+}
