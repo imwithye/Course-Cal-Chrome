@@ -15,5 +15,10 @@
       chrome.pageAction.show(tabId);
   }
 
+  var run = function(tab) {
+    chrome.tabs.executeScript({file: 'inject.js'});
+  }
+
   chrome.tabs.onUpdated.addListener(show);
+  chrome.pageAction.onClicked.addListener(run);
 })();
