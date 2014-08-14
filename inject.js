@@ -12,8 +12,20 @@
     return info;
   }
 
+  var downloadURL = function downloadURL(url) {
+    var hiddenIFrameID = 'hiddenDownloader',
+        iframe = document.getElementById(hiddenIFrameID);
+    if (iframe === null) {
+        iframe = document.createElement('iframe');
+        iframe.id = hiddenIFrameID;
+        iframe.style.display = 'none';
+        document.body.appendChild(iframe);
+    }
+    iframe.src = url;
+  }
+
   var serverRequert = function() {
-    var url = 'http://course-cal.appspot.com/perform.php?json=';
+    var url = '//course-cal.appspot.com/perform.php?json=';
     var args = getInfo();
     args.courses = Array();
 
@@ -39,6 +51,6 @@
       }
     }
     url = url + JSON.stringify(args);
-    window.location = url;
+    downloadURL(url);
   }();
 })();
