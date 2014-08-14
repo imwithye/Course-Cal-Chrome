@@ -23,7 +23,20 @@
       var index = tr[i].getElementsByTagName('td')[0]. getElementsByTagName('font')[0].innerHTML.trim();
       var code = tr[i].getElementsByTagName('td')[1]. getElementsByTagName('font')[0].innerHTML.trim();
       var examTime = tr[i].getElementsByTagName('td')[4]. getElementsByTagName('font')[0].innerHTML.trim();
-      args.courses.push({code: code, index: index});
+      if(examTime!='' && examTime!='-' && examTime!=null && examTime!=undefined) {
+        var date = examTime.split(' ')[0].trim();
+        var time = examTime.split(' ')[1].trim();
+        examTime = {};
+        examTime.year = date.split('-')[0].trim();
+        examTime.month = date.split('-')[0].trim().toLowerCase();
+        examTime.day = date.split('-')[1].trim();
+        examTime.startTime = time.split('-')[0].trim();
+        examTime.endTime = time.split('-')[1].trim();
+        args.courses.push({code: code, index: index, examTime: examTime});
+      }
+      else {
+        args.courses.push({code: code, index: index});
+      }
     }
     url = url + JSON.stringify(args);
     window.location = url;
