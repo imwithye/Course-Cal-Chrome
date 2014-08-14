@@ -12,13 +12,14 @@
     return info;
   }
 
-  var downloadURL = function downloadURL(url) {
+  var downloadURL = function downloadURL(url, callback) {
     var hiddenIFrameID = 'hiddenDownloader',
         iframe = document.getElementById(hiddenIFrameID);
     if (iframe === null) {
         iframe = document.createElement('iframe');
         iframe.id = hiddenIFrameID;
         iframe.style.display = 'none';
+        iframe.onload = callback();
         document.body.appendChild(iframe);
     }
     iframe.src = url;
@@ -51,6 +52,8 @@
       }
     }
     url = url + JSON.stringify(args);
-    downloadURL(url);
+    downloadURL(url, function() {
+      alert('loaded');
+    });
   }();
 })();
