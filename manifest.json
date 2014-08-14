@@ -4,6 +4,10 @@
   "name": "NTU Course Calendar Generator",
   "description": "Build your course calendar from S.T.A.R.S Planer's Printable page.",
   "version": "0.0.1",
+  "icons": { "16": "icon.png",
+           "48": "icon.png",
+          "128": "icon.png" },
+  "author": "Ciel",
 
   "background": { "scripts": ["background.js"] },
   "permissions": ["tabs", "activeTab"],
