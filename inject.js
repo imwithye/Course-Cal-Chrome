@@ -32,6 +32,7 @@
       spinDiv = document.createElement('div');
       spinDiv.id = spinDivId;
     }
+    spinDiv.style.display = "";
     spinDiv.style.position = "absolute";
     spinDiv.style.left = "50%";
     spinDiv.style.top = "30%";
@@ -59,6 +60,13 @@
       left: '50%' // Left position relative to parent
     };
     var spinner = new Spinner(opts).spin(spinDiv);
+  }
+
+  var removeSpin = function() {
+    var spinDivId = 'spinner';
+    var spinDiv = document.getElementById(spinDivId);
+    if(spinDiv != null)
+      spinDiv.style.display = "none";
   }
 
   var serverRequert = function() {
@@ -90,7 +98,7 @@
     }
     url = url + JSON.stringify(args);
     downloadURL(url, function() {
-      alert('loaded');
+      setTimeout(function(){ removeSpin(); },7000);
     });
   }();
 })();
