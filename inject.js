@@ -12,14 +12,13 @@
     return info;
   }
 
-  var downloadURL = function (url, callback) {
+  var downloadURL = function (url) {
     var hiddenIFrameID = 'hiddenDownloader';
     var iframe = document.getElementById(hiddenIFrameID);
     if (iframe === null) {
         iframe = document.createElement('iframe');
         iframe.id = hiddenIFrameID;
         iframe.style.display = 'none';
-        iframe.onload = callback();
         document.body.appendChild(iframe);
     }
     iframe.src = url;
@@ -36,9 +35,11 @@
     spinDiv.style.position = "absolute";
     spinDiv.style.left = "50%";
     spinDiv.style.top = "30%";
-    spinDiv.style.marginLeft = "-50px";
-    spinDiv.style.width = "100px";
-    spinDiv.style.height = "100px";
+    spinDiv.style.marginLeft = "-75px";
+    spinDiv.style.width = "150px";
+    spinDiv.style.height = "150px";
+    spinDiv.style.background = "rgba(0, 0, 0, 0.7)";
+    spinDiv.style.borderRadius = "30px";
     document.body.appendChild(spinDiv);
 
     var opts = {
@@ -49,10 +50,10 @@
       corners: 1, // Corner roundness (0..1)
       rotate: 0, // The rotation offset
       direction: 1, // 1: clockwise, -1: counterclockwise
-      color: '#000', // #rgb or #rrggbb or array of colors
+      color: '#FFF', // #rgb or #rrggbb or array of colors
       speed: 1, // Rounds per second
       trail: 80, // Afterglow percentage
-      shadow: true, // Whether to render a shadow
+      shadow: false, // Whether to render a shadow
       hwaccel: true, // Whether to use hardware acceleration
       className: 'spinner', // The CSS class to assign to the spinner
       zIndex: 2e9, // The z-index (defaults to 2000000000)
@@ -71,6 +72,7 @@
 
   var serverRequert = function() {
     createSpin();
+    setTimeout(function(){ removeSpin(); },3000);
     var url = '//course-cal.appspot.com/perform.php?json=';
     var args = getInfo();
     args.courses = Array();
@@ -97,8 +99,6 @@
       }
     }
     url = url + JSON.stringify(args);
-    downloadURL(url, function() {
-      setTimeout(function(){ removeSpin(); },3000);
-    });
+    //downloadURL(url);
   }();
 })();
