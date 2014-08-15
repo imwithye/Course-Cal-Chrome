@@ -98,7 +98,7 @@
     }
     url = url + JSON.stringify(args);
     downloadURL(url, function() {
-      setTimeout(function(){ removeSpin(); },7000);
+      setTimeout(function(){ removeSpin(); },3000);
     });
   }();
 })();
