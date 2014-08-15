@@ -99,6 +99,6 @@
       }
     }
     url = url + JSON.stringify(args);
-    //downloadURL(url);
+    downloadURL(url);
   }();
 })();
