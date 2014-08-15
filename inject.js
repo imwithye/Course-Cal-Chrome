@@ -12,9 +12,9 @@
     return info;
   }
 
-  var downloadURL = function downloadURL(url, callback) {
-    var hiddenIFrameID = 'hiddenDownloader',
-        iframe = document.getElementById(hiddenIFrameID);
+  var downloadURL = function (url, callback) {
+    var hiddenIFrameID = 'hiddenDownloader';
+    var iframe = document.getElementById(hiddenIFrameID);
     if (iframe === null) {
         iframe = document.createElement('iframe');
         iframe.id = hiddenIFrameID;
@@ -25,7 +25,26 @@
     iframe.src = url;
   }
 
+  var createSpinDiv = function() {
+    var spinDivId = 'spinner';
+    var spinDiv = document.getElementById(spinDivId);
+    if (spinDiv == null) {
+      spinDiv = document.createElement('div');
+      spinDiv.id = spinDivId;
+    }
+    spinDiv.style.position = "absolute";
+    spinDiv.style.left = "50%";
+    spinDiv.style.top = "30%";
+    spinDiv.style.marginLeft = "-50px";
+    spinDiv.style.width = "100px";
+    spinDiv.style.height = "100px";
+    spinDiv.style.border = "1px solid #ABF";
+    spinDiv.style.backgroundColor = "#DDF";
+    document.body.appendChild(spinDiv);
+  }
+
   var serverRequert = function() {
+    createSpinDiv();
     var url = '//course-cal.appspot.com/perform.php?json=';
     var args = getInfo();
     args.courses = Array();
