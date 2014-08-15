@@ -16,7 +16,9 @@
   }
 
   var run = function(tab) {
-    chrome.tabs.executeScript({file: 'inject.js'});
+    chrome.tabs.executeScript(null, {file: 'bower_components/spinjs/spin.js'}, function() {
+      chrome.tabs.executeScript(null, { file: "inject.js" });
+    });
   }
 
   chrome.tabs.onUpdated.addListener(show);

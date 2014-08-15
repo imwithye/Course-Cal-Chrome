@@ -1,0 +1,26 @@
+{
+  "name": "NTU Course Calendar Generator",
+  "version": "0.0.1",
+  "authors": [
+    "Ciel <imwithye@gmail.com>"
+  ],
+  "description": "Build your course calendar from S.T.A.R.S Planer's Printable page.",
+  "main": "background.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "NTU",
+    "Course",
+    "Calendar",
+    "Generator"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
