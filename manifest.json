@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
 
-  "name": "NTU Course Calendar Generator",
+  "name": "Course Cal",
   "description": "Build your course calendar from S.T.A.R.S Planer's Printable page.",
   "version": "0.0.1",
   "icons": { "16": "icon.png",
@@ -14,6 +14,6 @@
 
 	"page_action": {
 		"default_icon": "icon.png",
-		"default_title": "NTU Course Calendar Generator"
+		"default_title": "Course Cal | NTU Course Calendar Generator"
 	}
 }
