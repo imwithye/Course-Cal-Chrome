@@ -3,7 +3,7 @@ fs     = require 'fs'
 util   = require 'util'
 
 CoffeeSrcDir = 'parser'
-CoffeeSrcFiles = ['Event', 'Course', 'Parser']
+CoffeeSrcFiles = ['Event', 'Course', 'Parser', 'inject']
 CoffeeSrcFileList = ''
 for f in CoffeeSrcFiles
 	CoffeeSrcFileList += "#{CoffeeSrcDir}/#{f}.coffee "

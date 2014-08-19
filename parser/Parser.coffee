@@ -1,6 +1,7 @@
 class Parser
-	constructor: (url) ->
+	constructor: (url, mode) ->
 		@meta = {}
+		@meta.mode = mode
 		args = url.split('?')[1].split('&')
 		@meta.tz = 'Asia/Singapore';
 		@meta.unique_id = args[0].split('=')[1].trim()
@@ -32,6 +33,7 @@ class Parser
 
 	toJSON: () ->
 		json = {
+			mode: @meta.mode,
 			unique_id: @meta.unique_id,
 			tz: @meta.tz,
 			year: @meta.year,
@@ -44,8 +46,4 @@ class Parser
 		json
 
 	run: () ->
-		console.log 'Running Parser...'
-		console.log @toJSON()
-
-parser = new Parser document.URL
-parser.run()
+		@toJSON()
