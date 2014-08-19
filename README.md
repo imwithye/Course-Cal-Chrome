@@ -1,5 +1,7 @@
-NTU Course Calendar Generator
+Course Cal
 ======================
+
+[http://bit.ly/course-cal](http://bit.ly/course-cal)
 
 Build your course calendar from S.T.A.R.S Planer's Printable page.
 
