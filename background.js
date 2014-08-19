@@ -16,8 +16,10 @@
   }
 
   var run = function(tab) {
-    chrome.tabs.executeScript({file: 'bower_components/spinjs/spin.js'}, function() {
-      chrome.tabs.executeScript({file: "build/parser.js"});
+    chrome.tabs.insertCSS({file: 'bower_components/animate.css/animate.min.css'}, function() {
+      chrome.tabs.executeScript({file: 'bower_components/spinjs/spin.js'}, function() {
+        chrome.tabs.executeScript({file: "build/parser.js"});
+      });
     });
   }
 
