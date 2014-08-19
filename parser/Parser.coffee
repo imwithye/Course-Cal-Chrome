@@ -22,7 +22,7 @@ class Parser
 				date = examTime.split(' ')[0].trim()
 				time = examTime.split(' ')[1].trim()
 				examTime = {}
-				examTime.year = date.split('-')[2].trim()
+				examTime.year = '20' + date.split('-')[2].trim()
 				examTime.month = date.split('-')[1].trim().toLowerCase()
 				examTime.day = date.split('-')[0].trim()
 				examTime.startTime = time.split('-')[0].trim()

@@ -1,9 +1,11 @@
 class Course
 	constructor: (@code, @index, au, @name, @examTime)->
 		@au = au + ' AU'
-		@events = []
+		@events = null
 
 	addEvent: (event) ->
+		if !@events?
+			@events = []
 		@event.push event
 
 	toJSON: ()->
@@ -11,10 +13,11 @@ class Course
 			code: @code,
 			index: @index,
 			name: @name,
-			au: @au,
-			events: []
+			au: @au
 		}
 		json.examTime = @examTime if @examTime?
-		for event in @events
-			json.events.push event.toJSON
+		if @events?
+			json.events = []
+			for event in @events
+				json.events.push event.toJSON
 		json
