@@ -1,12 +1,8 @@
 class Course
-	constructor: (@code, @index)->
-		@name = ''
-		@au = ''
+	constructor: (@code, @index, au, @name)->
+		@au = au + ' AU'
 		@examTime = null
 		@events = []
-
-	setAU: (au) ->
-		@au = au + ' AU'
 
 	setExamTime: (year, month, day, startTime, endTime) ->
 		@examTime = {
@@ -22,10 +18,13 @@ class Course
 
 	toJSON: ()->
 		json = {
+			code: @code,
+			index: @index,
 			name: @name,
-			au: @au
+			au: @au,
+			events: []
 		}
 		json.examTime = @examTime if @examTime?
-		json.events = []
 		for event in @events
 			json.events.push event.toJSON
+		json
