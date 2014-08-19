@@ -51,7 +51,6 @@ removeSpin = () ->
   if spinDiv?
     spinDiv.style.display = "none"
 
-alert 'Test'
 createSpin()
 setTimeout (-> removeSpin()), 3000
 parser = new Parser document.URL, 'auto'
