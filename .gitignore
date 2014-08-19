@@ -1,2 +1,3 @@
 # created by git-ignore
 bower_components
+parser/parser.js
