@@ -1,17 +1,7 @@
 class Course
-	constructor: (@code, @index, au, @name)->
+	constructor: (@code, @index, au, @name, @examTime)->
 		@au = au + ' AU'
-		@examTime = null
 		@events = []
-
-	setExamTime: (year, month, day, startTime, endTime) ->
-		@examTime = {
-			year: year,
-			month: month,
-			day: day,
-			startTime: startTime,
-			endTime: endTime
-		}
 
 	addEvent: (event) ->
 		@event.push event
