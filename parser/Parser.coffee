@@ -31,12 +31,6 @@ class Parser
 			else examTime = null
 			@courses.push new Course(code, index, au, name, examTime)
 
-	addEvent: (code, event) ->
-		for course in @courses
-			if course.code is code
-				course.addEvent event
-				break
-
 	toJSON: () ->
 		json = {
 			mode: @meta.mode,
