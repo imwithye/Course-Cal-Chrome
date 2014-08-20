@@ -6,7 +6,7 @@ class Course
 	addEvent: (event) ->
 		if !@events?
 			@events = []
-		@event.push event
+		@events.push event
 
 	toJSON: ()->
 		json = {
@@ -19,5 +19,5 @@ class Course
 		if @events?
 			json.events = []
 			for event in @events
-				json.events.push event.toJSON
+				json.events.push event.toJSON()
 		json
