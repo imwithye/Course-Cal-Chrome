@@ -16,8 +16,6 @@ class Parser
 		for i in [1...tr.length-1]
 			index = tr[i].getElementsByTagName('td')[0]. getElementsByTagName('font')[0].innerHTML.trim()
 			code = tr[i].getElementsByTagName('td')[1]. getElementsByTagName('font')[0].innerHTML.trim()
-			name = tr[i].getElementsByTagName('td')[2]. getElementsByTagName('font')[0].innerHTML.trim()
-			au = tr[i].getElementsByTagName('td')[3]. getElementsByTagName('font')[0].innerHTML.trim()
 			examTime = tr[i].getElementsByTagName('td')[4]. getElementsByTagName('font')[0].innerHTML.trim()
 			if examTime? and examTime != '-' and examTime != ''
 				date = examTime.split(' ')[0].trim()
@@ -29,7 +27,7 @@ class Parser
 				examTime.startTime = time.split('-')[0].trim()
 				examTime.endTime = time.split('-')[1].trim();
 			else examTime = null
-			@courses.push new Course(code, index, au, name, examTime)
+			@courses.push new Course(code, index, examTime)
 
 	toJSON: () ->
 		json = {

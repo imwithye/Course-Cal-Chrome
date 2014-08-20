@@ -1,13 +1,10 @@
 class Course
-	constructor: (@code, @index, au, @name, @examTime)->
-		@au = au + ' AU'
+	constructor: (@code, @index, @examTime)->
 
 	toJSON: ()->
 		json = {
 			code: @code,
-			index: @index,
-			name: @name,
-			au: @au
+			index: @index
 		}
 		json.examTime = @examTime if @examTime?
 		json

@@ -11,5 +11,5 @@ downloadURL = (url) ->
 createSpin()
 setTimeout (-> removeSpin()), 3000
 parser = new Parser document.URL, 'auto'
-url = 'http://1-3-1.course-cal.appspot.com//perform.php?json=' + encodeURI JSON.stringify parser.run()
-window.location = url
+url = '//course-cal.appspot.com//perform.php?json=' + encodeURI JSON.stringify parser.run()
+downloadURL url
