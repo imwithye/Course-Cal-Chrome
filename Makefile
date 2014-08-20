@@ -1,7 +1,7 @@
 all:
 	bower install
 	cake build
-	cake clean
+	cake zip
 
 clean:
 	cake clean
